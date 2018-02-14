@@ -43,26 +43,7 @@ function Card(id, name) {
 			});
 
 			$input.focus();
-		}
-
-		cardDescription.click(changeToInput);
-
-		cardDeleteBtn.click(function(){
-			self.removeCard();
-		});
-
-		card.append(cardDeleteBtn);
-		cardDescription.text(self.name);
-		card.append(cardDescription)
-		return card;
-	}
-}
-Card.prototype = {
-	removeCard: function() {
-    var self = this;
-    $.ajax({
-      url: baseUrl + '/card/' + self.id,
-      method: 'DELETE',
+'DELETE',
       success: function(){
         self.element.remove();
       }
